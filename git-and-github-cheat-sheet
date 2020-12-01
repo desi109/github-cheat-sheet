@@ -1,0 +1,250 @@
+=============================Git============================================
+Download Git:  https://git-scm.com/downloads
+Git documentation: https://git-scm.com/doc
+
+
+     Git other resources:  https://www.atlassian.com/git/tutorials/what-is-git
+                           https://www.atlassian.com/git/tutorials
+                           
+     Visualizing Git branches: https://git-school.github.io/visualizing-git/
+                           
+     Git course:  https://www.codecademy.com/learn/learn-git
+     Train Git: https://learngitbranching.js.org/
+     Sourcetree - Git GUI: https://www.sourcetreeapp.com/
+
+Top 10 Websites to Learn Git Commands:
+https://javarevisited.blogspot.com/2019/05/10-free-websites-to-learn-git-online.html#axzz6fM4RExIP
+
+
+=============================GitHub=========================================
+
+Create a registration into GitHub: https://github.com/    
+(GitHub is a code hosting provider - cloud)
+GitHub documentation: https://docs.github.com/en
+
+
+     GitHub other resources: https://guides.github.com/
+                             https://www.youtube.com/githubguides
+                             https://lab.github.com/
+                             https://try.github.io/
+     About README.MD file:   https://www.makeareadme.com/
+     About .gitignore file:  https://coursework.vschool.io/create-a-gitignore/
+      
+     
+     
+
+Basic commands:            
+---------------           
+                 
+             pwd  -> print working directory             
+            tree  -> show system tree - all directories         
+             dir  -> list all files in directory (Windows)
+              ls  -> list all files in directory (Linux) 
+           mkdir  -> create a new folder
+        copy con  -> create an empty text (.txt) file  (Windows)      
+           touch  -> create an empty text (.txt) file  (Linux) 
+   gedit some.txt -> open .txt file for edit
+     
+     cd C:/Users/project-name -> go to folder C:/Users/project-name
+                        cd .. -> go one folder back
+   
+   
+                   
+
+Vim:
+-----
+i   -> insert mood
+:q  -> close file
+:q! -> close, don't save
+:w  -> save changes to file
+:wq -> save changes and close
+esc + ctrl -> exit insert mood
+
+
+
+
+Install Git:    
+------------   
+
+    Go to https://git-scm.com/download/win -> this link directly download Git for Windows  
+    sudo apt-get install git -> directly download Git for Linux
+
+    git --version  ->  show the Git version (Git is installed)
+
+
+
+
+Commands - help for Git:              
+-------------------------   
+  
+   git help -> for help
+    man git -> show Git documentation for commands
+    
+    
+    
+
+Commands - configure Git:              
+-------------------------   
+   
+               git config --global user.name "Your Name"  -> configure your name 
+    git config --global user.email "your_email@some.com"  -> configur your email 
+     
+                                     git config user.name -> show your name
+                                    git config user.email -> show your email
+                                       git config --list  -> show all configurations
+                   
+                   
+
+
+Commands - Initialize Git and GitHub repo:              
+------------------------------------------ 
+   
+ 1.Go to folder C:/Users/project-name :         
+   cd C:/Users/project-name
+ 
+ 2.Initialize the repository:                          
+   git init -> initialize the repository
+   
+ 3.Create README.MD file into C:/Users/project-name :
+   echo "# project-name" >> README.MD 
+   
+ 4.Create .gitignore file into C:/Users/project-name :
+   touche .gitignore
+   
+ 5.Add content to .gitignore file.
+ 
+ 6.Move all files to staging (index):
+   git add . 
+   
+ 7.Create new snapshot of the project and files are now in your local Git repo:
+   git commit -m "Initial commit"
+   
+ 8.Go to GitHub and create new repo with name "project-name".
+ 
+ 9.Connect your local Git repo with your remote origin GitHub repo:
+   git remote add origin https://github.com/username/project-name.git
+                                                                            
+ 10.Push all files from your local Git repo into your remote origin GitHub repo:
+    git push -u origin master
+   
+ 11.Now if you go to your GitHub project URL, you will see all the files.
+                                                          
+                   
+
+
+Commands - Other:              
+-----------------
+
+   There are three states of every file in the project:
+   
+      +--> commited --> modifed --> staged -+
+     /                                      |
+    +---------------------------------------+
+  
+  commited - unmodified changes from the last commit snapshot.
+  modified - changes made to files since last commit snapshot.
+    staged - changes marked to be added into the next commit snapshot.
+    
+    
+               git status -> show status of the project          
+       git status --short -> show status of the project (shorter)
+           git status -s  -> show status of the project (shorter)
+        
+        
+                 git diff -> compare NOT staged files, in our working directory   
+        git diff --staged -> (only for staged files) 
+                             compare the staged changes to our last commit snapshot
+                             
+                  git log  -> show all commits
+                  git log --oneline --graph --decorate --all
+                git log -1 -> show las one commit 
+         git log --oneline -> show all commits on one line
+            git log --stat -> show all commits with details
+           git log --patch -> show all commits as patch
+
+                       
+    git commit -a -m "First commit"  <--->  git add .   +   git commit -m "First Commit"   
+    
+    
+    How to write good commit messages?                                                      
+    -> https://chris.beams.io/posts/git-commit/
+
+
+
+Commands - Other:              
+------------------------------------------ 
+
+   git push origin master -> push local Git master repo changes into 
+                             remote GitHub origin master repo
+   
+   
+            git rm file.txt -> untrack and delete file.txt from Git
+   git rm --cached file.txt -> untrack file.txt but NOT delet it from Git
+   git mv file.txt some.txt -> rename file.txt to some.txt
+   
+   
+   
+   git checkout -b dev -> create new branch with name dev and checkout dev
+   git checkout master -> checkout master
+   git branch -> show all branches
+   
+   
+   
+------------------------------------------------------------------------- 
+ How to stash files?
+ (this means that files stay untracked, and they are saved on stage)
+     
+   git add .
+   git stash
+   git status
+   
+   git stash list -> show what was stashed
+   git stash show -> show what was stashed with more details 
+    git stash pop -> undo git stash
+   
+-------------------------------------------------------------------------
+ How to Merge?
+
+    git checkout dev  \    merge dev into master   
+    git merge master  /
+    
+    
+    git checkout dev  
+    git merge master  --> If there is conflict, edit it and save it
+    git add .
+    git commit -m "Resolve merge conflict"
+
+-------------------------------------------------------------------------
+ How to Reset ?
+ 
+       repo  |---to--->  staging
+        _ 
+       |          git reset --soft  -> remove the last commit from the Git history
+  soft |                               and move it back on staging
+       |   git reset --soft HEAD~3  -> remove the last 3 commits from the Git
+       |_                              history and move them back on staging
+       
+  -----------------------------------------------------------------------     
+      
+       repo  |---to----staging----to--->  working dir
+        _ 
+       |     git reset --mixed  -> remove the last commit from the Git
+ mixed |                           history and move it back to working dir
+       |_                 
+
+   ------------------------------------------------------------------------      
+        
+          repo  |---to----staging-->--to---working--dir---->   deleted
+         _ 
+        |          git reset --hard  -> remove the last commit from the Git history
+   hard |                               history and delete it
+        |_       
+       
+     
+           
+ -------------------------------------------------------------------------
+ How to Pull ?
+ 
+   git pull origin master --rebas  -> pull from origin remote master into 
+                                      local master, with rebasing
+     
