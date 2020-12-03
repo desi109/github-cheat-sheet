@@ -1,0 +1,185 @@
+==============================================================================================
+Install Git:    
+------------   
+
+    Go to https://git-scm.com/download/win -> this link directly download Git for Windows  
+    sudo apt-get install git -> directly download Git for Linux
+
+    git --version  ->  show the Git version (Git is installed)
+
+
+
+==============================================================================================
+Commands - git help  :              
+----------------------   
+  
+   git help -> for help
+    man git -> show Git documentation for commands
+    
+    
+    
+==============================================================================================
+Commands - git config  :              
+------------------------   
+   
+               git config --global user.name "Your Name"  -> configure your name 
+    git config --global user.email "your_email@some.com"  -> configur your email 
+     
+                                     git config user.name -> show your name
+                                    git config user.email -> show your email
+                                       git config --list  -> show all configurations
+                              git config --edit --global  -> default editor will open and 
+                                                             show the configuration file
+                                        
+                   
+==============================================================================================
+Commands - git status  :              
+------------------------
+
+   There are three states of every file in the project:
+   
+      +--> commited --> modifed --> staged -+
+     /                                      |
+    +---------------------------------------+
+  
+  commited - unmodified changes from the last commit snapshot.
+  modified - changes made to files since last commit snapshot.
+    staged - changes marked to be added into the next commit snapshot.
+    
+    
+               git status -> show status of the project          
+       git status --short -> show status of the project (shorter)
+           git status -s  -> show status of the project (shorter)
+
+ 
+==============================================================================================   
+Commands - git diff  :
+----------------------    
+        
+                 git diff -> compare NOT staged files, in our working directory   
+        git diff --staged -> (only for staged files) 
+                             compare the staged changes to our last commit snapshot
+                             
+                             
+                             
+==============================================================================================
+Commands - git log  :
+---------------------
+
+                  git log  -> show all commits
+                  git log --oneline --graph --decorate --all
+                git log -1 -> show las one commit 
+         git log --oneline -> show all commits on one line
+            git log --stat -> show all commits with details
+           git log --patch -> show all commits as patch
+
+==============================================================================================
+Commands - git commit  :
+------------------------
+                       
+    git commit -a -m "First commit"  <--->  git add .   +   git commit -m "First Commit"
+      git commit -am "First commit"  <--->  git add .   +   git commit -m "First Commit"   
+    
+    
+    How to write good commit messages?                                                      
+    -> https://chris.beams.io/posts/git-commit/
+
+
+==============================================================================================
+Commands - git push  :              
+---------------------- 
+
+   git push origin master -> push local Git master repo changes into 
+                             remote GitHub origin master repo
+   
+
+==============================================================================================
+Commands - git rm  :
+--------------------
+
+            git rm file.txt -> untrack and delete file.txt from Git
+   git rm --cached file.txt -> untrack file.txt but NOT delet it from Git
+   git mv file.txt some.txt -> rename file.txt to some.txt
+   
+   
+==============================================================================================
+Commands - git checkout  :
+--------------------------
+
+   git checkout -b dev -> create new branch with name dev and checkout dev
+   git checkout master -> checkout master
+   git branch -> show all branches
+   
+   
+==============================================================================================
+Commands - git stash  : 
+-----------------------
+ 
+ How to stash files?
+ (this means that files stay untracked, and they are saved on stage)
+     
+1.   git add .
+2.   git stash
+3.   git status
+   
+   git stash list -> show what was stashed
+   git stash show -> show what was stashed with more details 
+    git stash pop -> undo git stash
+   
+   
+==============================================================================================
+Commands - git merge  :
+-----------------------
+ 
+ How to Merge?
+
+1.    git checkout dev  \    merge dev into master   
+2.    git merge master  /
+    
+    
+1.    git checkout dev  
+2.    git merge master  --> If there is conflict, edit it and save it
+3.    git add .
+4.    git commit -m "Resolve merge conflict"
+
+
+
+==============================================================================================
+Commands - git reset  :
+-----------------------
+ 
+ How to Reset ?
+ 
+       repo  |---to--->  staging
+        _ 
+       |          git reset --soft  -> remove the last commit from the Git history
+  soft |                               and move it back on staging
+       |   git reset --soft HEAD~3  -> remove the last 3 commits from the Git
+       |_                              history and move them back on staging
+       
+  -----------------------------------------------------------------------     
+      
+       repo  |---to----staging----to--->  working dir
+        _ 
+       |     git reset --mixed  -> remove the last commit from the Git
+ mixed |                           history and move it back to working dir
+       |_                 
+
+   ------------------------------------------------------------------------      
+        
+          repo  |---to----staging-->--to---working--dir---->   deleted
+         _ 
+        |          git reset --hard  -> remove the last commit from the Git history
+   hard |                               history and delete it
+        |_       
+       
+     
+           
+==============================================================================================
+Commands - git pull  :
+-----------------------
+ 
+ How to Pull ?
+ 
+   git pull origin master --rebas  -> pull from origin remote master into 
+                                      local master, with rebasing
