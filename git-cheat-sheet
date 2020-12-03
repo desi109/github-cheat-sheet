@@ -56,9 +56,10 @@ Commands - git status  :
 Commands - git diff  :
 ----------------------    
         
-                 git diff -> compare NOT staged files, in our working directory   
-        git diff --staged -> (only for staged files) 
-                             compare the staged changes to our last commit snapshot
+                      git diff -> compare NOT staged files, in our working directory
+   git diff e5d1a755 c7ac56625 -> show difference between two commits, in our working directory   
+             git diff --staged -> (only for staged files) 
+                                  compare the staged changes to our last commit snapshot
                              
                              
                              
@@ -89,6 +90,13 @@ Commands - git commit  :
 Commands - git push  :              
 ---------------------- 
 
+   git push -u origin master -> branch 'master' set up to track 
+                                remote branch 'master' from 'origin'
+                             -> push local Git master repo changes into 
+                                remote GitHub origin master repo
+                             
+                             
+                             
    git push origin master -> push local Git master repo changes into 
                              remote GitHub origin master repo
    
@@ -106,9 +114,18 @@ Commands - git rm  :
 Commands - git checkout  :
 --------------------------
 
-   git checkout -b dev -> create new branch with name dev and checkout dev
-   git checkout master -> checkout master
-   git branch -> show all branches
+ How to go back past in time and see the project?
+      git checkout c7ac56625 -> say "Git go back in past to this version of the project"
+ When you are ready turn back in present state of your project.
+      git checkout e457cce99 -> say "Git go back in present to this version of the project"
+                   --------
+                       +---> this is the commit id of your last commit
+                       
+                       
+                       
+      git checkout -b dev -> create new branch with name dev and checkout dev
+      git checkout master -> checkout master
+      git branch -> show all branches
    
    
 ==============================================================================================
@@ -181,5 +198,14 @@ Commands - git pull  :
  
  How to Pull ?
  
-   git pull origin master --rebas  -> pull from origin remote master into 
-                                      local master, with rebasing
+        git pull origin master --rebase  -> pull from origin remote master into 
+                                            local master, with rebasing
+                                      
+                                      
+                                      
+==============================================================================================
+Commands - git clone  :
+-----------------------  
+
+       git clone https://github.com/username/project-name  -> clone a remote repo on your 
+                                                              computer (local)                               
