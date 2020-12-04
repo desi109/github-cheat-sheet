@@ -31,3 +31,34 @@ Commands - Initialize Git and GitHub repo:
     git push -u origin master
    
  11.Now if you go to your GitHub project URL, you will see all the files.
+ 
+ 
+ 
+====================================================================================== 
+Commands - Initialize GitHub and Git repo:              
+-------------------------------------------
+   
+ 1.Create new GitHub repo:
+   Name: project-name
+   + README.MD
+   + .gitignore
+           
+ 2. Edit .gitignore file.
+ 
+ 3.Clone the repo:         
+   git clone https://github.com/user/project-name
+   
+ 4. Edit the project locally. Add some new files.
+ 
+ 5.Move all files to staging (index):
+   git add . 
+   
+ 6.Create new snapshot of the project and files are now in your local Git repo:
+   git commit -m "Commit new files"
+                                                
+ 7.Push all files from your local Git repo into your remote origin GitHub repo:
+    git push origin master
+   
+ 8.Now if you go to your GitHub project URL, you will see all the files.
+ 
+ 
