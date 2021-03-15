@@ -128,7 +128,7 @@ https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/
      Final thing is checking if the communication is possible between my local machine and GitHub.
      Run command:
      
-           ssh ‑T git@github.com
+           ssh -T git@github.com
            
            
      There will be a warning, but you can ignore that warning. Type 'yes'. 
@@ -144,5 +144,4 @@ https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/
      
      
 ==============================================================================================
-Git - :       
----------------- 
+
